@@ -17,7 +17,7 @@ type Query struct {
 func (q *Query) Render() string {
 	vals := url.Values{}
 	for k, v := range q.Filters {
-		vals.Set(k, v)
+		vals.Set(k, v.(string))
 	}
 
 	if q.Order != nil && len(q.Order) > 0 {
